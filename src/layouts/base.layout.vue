@@ -1,26 +1,23 @@
 <script lang="ts" setup>
-import { NIcon, useThemeVars } from 'naive-ui';
+import { NIcon } from 'naive-ui';
 
 import { RouterLink } from 'vue-router';
-import { Heart, Home2, Menu2 } from '@vicons/tabler';
+import { Home2, Menu2 } from '@vicons/tabler';
 
 import { storeToRefs } from 'pinia';
-import HeroGradient from '../assets/hero-gradient.svg?component';
 import MenuLayout from '../components/MenuLayout.vue';
 import NavbarButtons from '../components/NavbarButtons.vue';
 import { useStyleStore } from '@/stores/style.store';
 import { config } from '@/config';
 import type { ToolCategory } from '@/tools/tools.types';
 import { useToolStore } from '@/tools/tools.store';
-import { useTracker } from '@/modules/tracker/tracker.services';
 import CollapsibleToolMenu from '@/components/CollapsibleToolMenu.vue';
 
-const themeVars = useThemeVars();
 const styleStore = useStyleStore();
 const version = config.app.version;
 const commitSha = config.app.lastCommitSha.slice(0, 7);
+const logoSrc = computed(() => styleStore.isDarkTheme ? '/marvin-icon-dark.svg' : '/marvin-icon-light.svg');
 
-const { tracker } = useTracker();
 const { t } = useI18n();
 
 const toolStore = useToolStore();
@@ -36,12 +33,11 @@ const tools = computed<ToolCategory[]>(() => [
   <MenuLayout class="menu-layout" :class="{ isSmallScreen: styleStore.isSmallScreen }">
     <template #sider>
       <RouterLink to="/" class="hero-wrapper">
-        <HeroGradient class="gradient" />
+        <img class="brand-logo" :src="logoSrc" alt="IT Tools" width="64" height="64">
         <div class="text-wrapper">
           <div class="title">
-            IT - TOOLS
+            IT Tools
           </div>
-          <div class="divider" />
           <div class="subtitle">
             {{ $t('home.subtitle') }}
           </div>
@@ -62,28 +58,16 @@ const tools = computed<ToolCategory[]>(() => [
         <div class="footer">
           <div>
             IT-Tools
-
-            <c-link target="_blank" rel="noopener" :href="`https://github.com/CorentinTh/it-tools/tree/v${version}`">
-              v{{ version }}
-            </c-link>
+            v{{ version }}
 
             <template v-if="commitSha && commitSha.length > 0">
               -
-              <c-link
-                target="_blank"
-                rel="noopener"
-                type="primary"
-                :href="`https://github.com/CorentinTh/it-tools/tree/${commitSha}`"
-              >
-                {{ commitSha }}
-              </c-link>
+              {{ commitSha }}
             </template>
           </div>
           <div>
             © {{ new Date().getFullYear() }}
-            <c-link target="_blank" rel="noopener" href="https://corentin.tech?utm_source=it-tools&utm_medium=footer">
-              Corentin Thomasset
-            </c-link>
+            Wuxi Marvin Technology Co., Ltd
           </div>
         </div>
       </div>
@@ -115,25 +99,7 @@ const tools = computed<ToolCategory[]>(() => [
         <command-palette />
 
         <locale-selector v-if="!styleStore.isSmallScreen" />
-
-        <div>
-          <NavbarButtons v-if="!styleStore.isSmallScreen" />
-        </div>
-
-        <c-tooltip position="bottom" :tooltip="$t('home.support')">
-          <c-button
-            round
-            href="https://www.buymeacoffee.com/cthmsst"
-            rel="noopener"
-            target="_blank"
-            class="support-button"
-            :bordered="false"
-            @click="() => tracker.trackEvent({ eventName: 'Support button clicked' })"
-          >
-            {{ $t('home.buyMeACoffee') }}
-            <NIcon v-if="!styleStore.isSmallScreen" :component="Heart" ml-2 />
-          </c-button>
-        </c-tooltip>
+        <NavbarButtons v-if="!styleStore.isSmallScreen" />
       </div>
       <slot />
     </template>
@@ -152,19 +118,6 @@ const tools = computed<ToolCategory[]>(() => [
 //     background-size: @size @size;
 // }
 
-.support-button {
-  background: rgb(37, 99, 108);
-  background: linear-gradient(48deg, rgba(37, 99, 108, 1) 0%, rgba(59, 149, 111, 1) 60%, rgba(20, 160, 88, 1) 100%);
-  color: #fff !important;
-  transition: padding ease 0.2s !important;
-
-  &:hover {
-    color: #fff;
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-}
-
 .footer {
   text-align: center;
   color: #838587;
@@ -173,45 +126,41 @@ const tools = computed<ToolCategory[]>(() => [
 }
 
 .sider-content {
-  padding-top: 160px;
   padding-bottom: 200px;
 }
 
 .hero-wrapper {
-  position: absolute;
-  display: block;
-  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
-  z-index: 10;
-  overflow: hidden;
+  padding: 18px 16px 14px;
+  text-decoration: none;
+  color: inherit;
+  box-sizing: border-box;
 
-  .gradient {
-    margin-top: -65px;
+  .brand-logo {
+    display: block;
+    width: 72px;
+    height: 72px;
+    border-radius: 18px;
   }
 
   .text-wrapper {
-    position: absolute;
-    left: 0;
     width: 100%;
     text-align: center;
-    top: 16px;
-    color: #fff;
+    margin-top: 8px;
 
     .title {
-      font-size: 25px;
+      font-size: 24px;
       font-weight: 600;
-    }
-
-    .divider {
-      width: 50px;
-      height: 2px;
-      border-radius: 4px;
-      background-color: v-bind('themeVars.primaryColor');
-      margin: 0 auto 5px;
+      line-height: 1.2;
     }
 
     .subtitle {
-      font-size: 16px;
+      font-size: 14px;
+      line-height: 1.3;
+      opacity: 0.72;
     }
   }
 }
