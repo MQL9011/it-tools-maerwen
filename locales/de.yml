@@ -244,7 +244,7 @@ tools:
       Ursprung, Parameter, Port, Benutzername-Passwort usw.) zu erhalten.
   url-redirect:
     title: URL-Weiterleitung
-    description: Gib eine URL ein und öffne sie in einem neuen Tab. Fehlendes https:// wird automatisch ergänzt.
+    description: URL öffnen – unterstützt http(s) und Custom Schemes (z. B. dtmapp://). Fehlendes https:// wird ergänzt.
   iban-validator-and-parser:
     title: IBAN-Validator und -Parser
     description: >-

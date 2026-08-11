@@ -6,7 +6,7 @@ export const tool = defineTool({
   name: translate('tools.url-redirect.title'),
   path: '/url-redirect',
   description: translate('tools.url-redirect.description'),
-  keywords: ['url', 'redirect', 'jump', 'open', 'link', '跳转', '打开'],
+  keywords: ['url', 'redirect', 'jump', 'open', 'link', 'scheme', 'deep link', 'dtmapp', '跳转', '打开'],
   component: () => import('./url-redirect.vue'),
   icon: ExternalLink,
   createdAt: new Date('2026-08-11'),

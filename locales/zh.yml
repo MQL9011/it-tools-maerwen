@@ -204,7 +204,7 @@ tools:
 
   url-redirect:
     title: URL跳转
-    description: 输入 URL 后在新标签页打开，支持自动补全 https://
+    description: 输入 URL 后跳转打开，支持 http(s) 与自定义 scheme（如 dtmapp://），无协议时自动补全 https://
 
   iban-validator-and-parser:
     title: IBAN验证器和解析器

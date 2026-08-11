@@ -207,7 +207,7 @@ tools:
 
   url-redirect:
     title: URL-omdirigering
-    description: Skriv inn en URL og åpne den i en ny fane. Legger automatisk til https:// om det mangler.
+    description: Åpne URL – støtter http(s) og egendefinerte schemes (f.eks. dtmapp://). Legger til https:// om det mangler.
 
   iban-validator-and-parser:
     title: IBAN validering og analysering

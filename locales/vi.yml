@@ -201,7 +201,7 @@ tools:
 
   url-redirect:
     title: Chuyển hướng URL
-    description: Nhập URL và mở trong tab mới. Tự động thêm https:// nếu thiếu.
+    description: Mở URL – hỗ trợ http(s) và scheme tùy chỉnh (ví dụ dtmapp://). Tự thêm https:// nếu thiếu.
 
   iban-validator-and-parser:
     title: Kiểm tra và phân tích số IBAN

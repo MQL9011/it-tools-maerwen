@@ -207,7 +207,7 @@ tools:
 
   url-redirect:
     title: URL redirect
-    description: Enter a URL and open it in a new tab. Automatically prefixes https:// when missing.
+    description: Enter a URL to open it. Supports http(s) and custom schemes (e.g. dtmapp://). Automatically prefixes https:// when missing.
 
   iban-validator-and-parser:
     title: IBAN validator and parser
