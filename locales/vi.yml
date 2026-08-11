@@ -199,6 +199,10 @@ tools:
     title: Trình phân tích URL
     description: Phân tích một chuỗi URL để lấy tất cả các phần khác nhau (giao thức, nguồn gốc, tham số, cổng, tên người dùng-mật khẩu, ...)
 
+  url-redirect:
+    title: Chuyển hướng URL
+    description: Nhập URL và mở trong tab mới. Tự động thêm https:// nếu thiếu.
+
   iban-validator-and-parser:
     title: Kiểm tra và phân tích số IBAN
     description: Xác thực và phân tích số IBAN. Kiểm tra tính hợp lệ của IBAN và lấy thông tin về quốc gia, BBAN, xem có phải là QR-IBAN và định dạng thân thiện của IBAN.

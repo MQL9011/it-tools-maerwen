@@ -242,6 +242,9 @@ tools:
     description: >-
       Parse eine URL-Zeichenfolge, um alle verschiedenen Teile (Protokoll,
       Ursprung, Parameter, Port, Benutzername-Passwort usw.) zu erhalten.
+  url-redirect:
+    title: URL-Weiterleitung
+    description: Gib eine URL ein und öffne sie in einem neuen Tab. Fehlendes https:// wird automatisch ergänzt.
   iban-validator-and-parser:
     title: IBAN-Validator und -Parser
     description: >-

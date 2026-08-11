@@ -205,6 +205,10 @@ tools:
     title: URL analyse
     description: Parsere en URL ned til bestanddelene (protokoll, opprinnelse, parametre, port, brukernavn-passord, ...).
 
+  url-redirect:
+    title: URL-omdirigering
+    description: Skriv inn en URL og åpne den i en ny fane. Legger automatisk til https:// om det mangler.
+
   iban-validator-and-parser:
     title: IBAN validering og analysering
     description: Valider og parser IBAN numre. Sjekk om et IBAN er gyldig og få landet, BBAN, om det er en QR-IBAN og IBAN i et vennlig format.
